@@ -12,8 +12,6 @@ public class Solution {
 
 	}
 
-	
-	
 	    public int[] solution(long n) {
 	        int[] answer = new int[String.valueOf(n).length()];
 	        // String.valueOf(n).length() 사용 안하면 Index 0 out of bounds for length 0 에러가남
