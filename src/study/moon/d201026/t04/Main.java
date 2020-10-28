@@ -15,8 +15,11 @@ public class Main {
         for (int i = 0; i < size; i++) {
             int floor = arr[i][0];
             for (int j = 0; j < size; j++) {
-                if (floor == arr[i][j]) {
+                if(arr[i][j] == floor) {
                     continue;
+                }
+                if(arr[i][j] + 1 == floor) {
+
                 }
 
             }
