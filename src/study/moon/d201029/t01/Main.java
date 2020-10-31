@@ -2,7 +2,7 @@ package study.moon.d201029.t01;
 
 import java.io.*;
 
-//https://www.acmicpc.net/problem/10026
+// https://www.acmicpc.net/problem/1987
 public class Main {
     static int[] moveX = {-1,1,0,0};
     static int[] moveY = {0,0,-1,1};

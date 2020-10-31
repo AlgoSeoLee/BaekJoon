@@ -1,7 +1,6 @@
 package study.moon.d201029.t02;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.Queue;
 
