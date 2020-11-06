@@ -2,6 +2,7 @@ package study.moon.d201105.t10;
 
 import java.io.*;
 
+//https://www.acmicpc.net/problem/8958
 public class Main {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
