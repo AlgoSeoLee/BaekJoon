@@ -1,5 +1,13 @@
 package study.moon.woowabros.t03;
 
+/*
+    앞뒷면 동전 맞추기 게임
+    배팅 전략
+    1. 이전판에 졌으면 이전판의 2배의 돈을 배팅한다
+    2. 이전판에 이겼으면 이번판에는 100원을 배팅한다.
+    3. 이전판에 졌을 때 배팅해야 할 돈보다 소지금이 적으면 가진돈 전액을 배팅한다.
+    4. 모든 돈을 다 잃었으면 게임을 종료하고 0원을 반환한다.
+ */
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();

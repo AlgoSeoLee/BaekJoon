@@ -1,5 +1,18 @@
 package study.moon.woowabros.t02;
 
+/*
+문제
+입력
+String="180342", op = "+"
+
+출력
+1+80342
+18+ 342
+180+342
+1803+42
+18034+2
+의 값을 배열에 넣어서 반환하시오
+ */
 public class Solution {
     public long[] solution(String s, String op) {
         long[] answer = new long[s.length()-1];
