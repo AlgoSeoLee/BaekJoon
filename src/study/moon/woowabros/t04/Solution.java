@@ -2,6 +2,14 @@ package study.moon.woowabros.t04;
 
 import java.util.HashMap;
 import java.util.Map;
+/*
+    (0,0)의 위치에서 시작해서 1,2,3,4,5,6,7,8,9의 순서대로 해당 번호를 찾아 번호를 지우려고 한다.
+    최소한의 움직임으로 번호를 삭제하려고 할 때 총 움직임의 횟수를 구하여라
+    삭제를 하는 행위도 1번의 움직임으로 계산한다.
+    ex) 1 6 2  <-1에서 시작
+        3 4 9
+        5 7 8
+ */
 
 public class Solution {
     int answer;

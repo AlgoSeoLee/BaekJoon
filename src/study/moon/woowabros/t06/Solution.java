@@ -2,12 +2,36 @@ package study.moon.woowabros.t06;
 
 import java.util.*;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
+/*
+    사람 번호  /  문제 번호  /  문제 점수
+    0001        3           95
+    0001        5           90
+    0001        5           100
+    0002        3           95
+    0001        7           80
+    0001        8           80
+    0001        10          90
+    0002        10          90
+    0002        7           80
+    0002        8           80
+    0002        5           100
+    0003        99          90
+
+    해당 문제의 가장 높은 점수가 해당 인원의 문제번호의 최종 점수로 입력된다.
+    컨닝을 한 사람을 잡아내려고 한다.
+    다음과 같은 조건일 때 컨닝을 한사람이라고 간주한다.
+    1. 푼 문제의 갯수가 같다.
+    2. 푼 문제의 번호가 같다.
+    3. 푼 문제의 점수가 같다.
+
+    컨닝한 사람의 코드를 배열에 입력하여 리턴하세요.
+ */
 public class Solution {
     public static void main(String[] args) {
         Solution solution = new Solution();
-        System.out.println(Arrays.toString(solution.solution(new String[]{"0001 3 95", "0001 5 90", "0001 5 100", "0002 3 95", "0001 7 80", "0001 8 80", "0001 10 90", "0002 10 90", "0002 7 80", "0002 8 80", "0002 5 100", "0003 99 90"})));
+        System.out.println(Arrays.toString(solution.solution(new String[]{"0001 3 95", "0001 5 90", "0001 5 100", "0002 3 95", "0001 7 80", "0001 8 80", "0001 10 90",
+                "0002 10 90", "0002 7 80", "0002 8 80", "0002 5 100", "0003 99 90"})));
     }
     List<String> answer;
 
