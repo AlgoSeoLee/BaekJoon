@@ -1,5 +1,8 @@
 package study.moon.woowabros.t02;
 
+/*
+
+ */
 public class Solution {
     public long[] solution(String s, String op) {
         long[] answer = new long[s.length()-1];
