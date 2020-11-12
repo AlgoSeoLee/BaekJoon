@@ -1,8 +1,8 @@
-package study.moon.d201109.t01;
+package study.moon.d201112.t01;
 
 import java.io.*;
-import java.util.Arrays;
 
+//https://www.acmicpc.net/problem/14503
 public class Main {
     static int nowDirection = 0;
     static int r;
@@ -11,7 +11,6 @@ public class Main {
     static int[][] arr;
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         String[] split = br.readLine().split(" ");
         int n = Integer.parseInt(split[0]);
         int m = Integer.parseInt(split[1]);
