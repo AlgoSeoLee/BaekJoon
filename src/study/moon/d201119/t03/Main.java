@@ -35,7 +35,6 @@ public class Main {
                     if (Min[status[i]] == -1) {
                         q.add(status[i]);
                         Min[status[i]] = Min[nextN] + 1;
-
                     }
                 }
             }

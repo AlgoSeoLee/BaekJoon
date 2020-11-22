@@ -48,14 +48,15 @@ class SegmentTreeMin {
     }
 
     public long min(int left, int right) {
+        //범위를 벗어나는 녀석들은 이걸로 처리를 한다.
         if (left > arr.length - 1 || right < 1) {
             return Integer.MAX_VALUE;
         }
-
+        //범위 안쪽에 있는 녀석들을 계산한다 이걸로
         if (left <= 1 && arr.length - 1 <= right) {
             return tree[1];
         }
-
+        //아래로 계산한다
         int mid = arr.length / 2;
         return Math.min(min(1, mid, 2, left, right), min(mid + 1, arr.length - 1, 3, left, right));
     }
