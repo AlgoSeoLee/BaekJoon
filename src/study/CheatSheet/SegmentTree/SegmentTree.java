@@ -1,4 +1,4 @@
-package study.CheatSheet;
+package study.CheatSheet.SegmentTree;
 
 public class SegmentTree {
 
