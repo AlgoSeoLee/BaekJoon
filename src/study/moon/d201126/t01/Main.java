@@ -12,20 +12,20 @@ public class Main {
         int n = Integer.parseInt(strings[0]);
         int m = Integer.parseInt(strings[1]);
 
-
         String[] split = br.readLine().split(" ");
         int[] arr = new int[n];
-        for(int i=0; i<split.length; i++){
+        for(int i = 0; i < split.length ; i++){
             arr[i] = Integer.parseInt(split[i]);
         }
+
         Arrays.sort(arr);
 
-        int max = arr[n-1];
+        int max = arr[n - 1];
         int min = 0;
         int mid;
 
         while(max >= min){
-            mid = (min + max)/2;
+            mid = (min + max) / 2;
             int cutTree;
             long sumCutTree = 0;
             for (int i : arr) {
