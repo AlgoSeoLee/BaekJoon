@@ -1,10 +1,11 @@
 package study.moon.d201207.t17;
 
+import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -17,17 +18,22 @@ public class Main {
             arr[i] = sc.nextInt();
         }
         Arrays.sort(arr);
-
+        System.out.println(getSanSul(arr));
+        System.out.println(getMiddle(arr));
+        System.out.println(getMostFrequency(arr));
+        System.out.println(getRange(arr));
 
 
     }
 
-    public static int getSanSul(int[] arr) {
+    public static String getSanSul(int[] arr) {
         int answer = 0;
         for (int j : arr) {
             answer += j;
         }
-        return answer/ arr.length;
+        double result = (double)answer / arr.length;
+
+        return String.valueOf(Math.round(result));
     }
 
     public static int getMiddle(int[] arr) {
@@ -43,13 +49,23 @@ public class Main {
         Integer[] values = map.values().toArray(Integer[]::new);
         int max = Integer.MIN_VALUE;
         int maxIndex = 0;
-        for (int i = 0; i < keys.length; i++) {
-            if(keys[i]>max) {
-                max = keys[i];
+        for (int i = 0; i < values.length; i++) {
+            if(values[i]>=max) {
+                max = values[i];
                 maxIndex = i;
             }
         }
-        return values[max];
+        List<Integer> answer = new ArrayList<>();
+        for (int i = 0; i < values.length; i++) {
+            if(values[i] == max) {
+                answer.add(keys[i]);
+            }
+        }
+
+        if(answer.size()>=2) {
+            return answer.stream().sorted().collect(Collectors.toList()).get(1);
+        }
+        return keys[maxIndex];
     }
 
     public static int getRange(int[] arr) {
