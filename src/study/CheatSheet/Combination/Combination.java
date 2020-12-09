@@ -6,8 +6,8 @@ import java.util.List;
 public class Combination {
     public static void main(String[] args) {
         int n = 4;
-        int r = 2;
-        int[] arr = {1, 1, 0, 0};
+        int r = 3;
+        int[] arr = {1, 1, 1, 0};
         int[] output = new int[n];
         boolean[] visited = new boolean[n];
 

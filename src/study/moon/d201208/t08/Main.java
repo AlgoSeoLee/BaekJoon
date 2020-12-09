@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
+//https://www.acmicpc.net/problem/18111
 public class Main {
 
     static int n = 0;

@@ -1,4 +1,4 @@
-package study.moon.d201022.t02;
+package study.CheatSheet.Dijkstra;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -8,46 +8,46 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
-// https://www.acmicpc.net/problem/1916
-
-public class Main {
+public class Dijkstra {
     static int vertex, edge;
     static ArrayList<ArrayList<Node>> list; // 인접리스트.
-    static int[] dist; // 시작점에서 각 정점으로 가는 최단거리.
-    static boolean[] check; // 방문 확인.
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        vertex = Integer.parseInt(br.readLine());
-        edge = Integer.parseInt(br.readLine());
-
+        String[] split = br.readLine().split(" ");
+        vertex = Integer.parseInt(split[0]);
+        edge = Integer.parseInt(split[1]);
         list = new ArrayList<>();
-        dist = new int[vertex + 1];
-        check = new boolean[vertex + 1];
-
-        Arrays.fill(dist, Integer.MAX_VALUE);
 
         for (int i = 0; i <= vertex; i++) {
             list.add(new ArrayList<>());
         }
 
-        // 단방향 인접 리스트 구현.
+//        // 단방향 인접 리스트 구현.
+//        for (int i = 0; i < edge; i++) {
+//            String[] strings = br.readLine().split(" ");
+//            int start = Integer.parseInt(strings[0]);
+//            int end = Integer.parseInt(strings[1]);
+//
+//            // start에서 end로 가는 weight (가중치)
+//            list.get(start).add(new Node(end, 1));
+//        }
+
+        //양방향 인접리스트 구현
         for (int i = 0; i < edge; i++) {
             String[] strings = br.readLine().split(" ");
             int start = Integer.parseInt(strings[0]);
             int end = Integer.parseInt(strings[1]);
-            int data = Integer.parseInt(strings[2]);
 
             // start에서 end로 가는 weight (가중치)
-            list.get(start).add(new Node(end, data));
+            list.get(start).add(new Node(end, 1));
+            list.get(end).add(new Node(start,1));
         }
 
-        String[] strings = br.readLine().split(" ");
-        int start = Integer.parseInt(strings[0]);
-        int end = Integer.parseInt(strings[1]);
 
-        bw.write(dijkstra(start, end));
+        bw.write(dijkstra(1,3)+"");
+
         bw.flush();
         bw.close();
         br.close();
@@ -57,6 +57,9 @@ public class Main {
     public static int dijkstra(int start, int end) {
         PriorityQueue<Node> heap = new PriorityQueue<>();
         boolean[] check = new boolean[vertex + 1];
+        int[] dist = new int[vertex + 1];
+        Arrays.fill(dist, Integer.MAX_VALUE);
+
         heap.offer(new Node(start, 0));
         dist[start] = 0;
 
