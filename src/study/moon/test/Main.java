@@ -7,14 +7,10 @@ import java.util.Arrays;
 public class Main {
 
     public static void main(String[] args) throws IOException {
-        String[] arr = {"Hello","My", "Name","IS","MunHyeok"};
-        Arrays.sort(arr);
-        System.out.println(Arrays.toString(arr));
-        Arrays.sort(arr,(o1,o2)-> {//양수면 자리를 바꾼다?
-            return o2.length() - o1.length();
-        });
+        String[] arr = {"128","My", "Name","IS","MunHyeok"};
 
-        System.out.println(Arrays.toString(arr));
+        boolean matches = "128".matches("^[0-9]*$");
+        System.out.println(matches);
     }
 }
 
