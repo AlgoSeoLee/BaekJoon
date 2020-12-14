@@ -1,7 +1,7 @@
 package study.moon.d201212.t01;
 
 import java.io.*;
-
+//https://www.acmicpc.net/problem/5525
 public class Main {
     static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
     static int n, m, ans;
