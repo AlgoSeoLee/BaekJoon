@@ -1,96 +1,114 @@
 package study.moon.d201214.t01;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.util.LinkedList;
+import java.util.Queue;
+import java.util.StringTokenizer;
 
-//https://www.acmicpc.net/problem/9019
 public class Main {
+    static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+    static final int MAX = 10000;
+    static boolean[] visited;
+    static int[] parent;
+    static char[] register;
+
+    // 결과 값 출력을 위한 객체 선언
+    static StringBuilder sb;
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         int T = Integer.parseInt(br.readLine());
 
-        for (int i = 0; i < T; i++) {
-            boolean[] visit = new boolean[10000];
-            String answer = "";
-            String[] split = br.readLine().split(" ");
-            int start = Integer.parseInt(split[0]);
-            int end = Integer.parseInt(split[1]);
-            LinkedList<Data> queue = new LinkedList<>();
-            queue.offer(new Data(doDouble(start), "D"));
-            queue.offer(new Data(doSubtraction(start), "S"));
-            queue.offer(new Data(doLeft(start), "L"));
-            queue.offer(new Data(doRight(start), "R"));
-            visit[start] = true;
+        while(T-- > 0){
+            sb = new StringBuilder();
+            StringTokenizer st = new StringTokenizer(br.readLine());
 
-            while (!queue.isEmpty()) {
-                Data poll = queue.poll();
-                if (poll.number == end) {
-                    answer = poll.answer;
-                    queue.clear();
+            // 입력 값 처리
+            int A = Integer.parseInt(st.nextToken());
+            int B = Integer.parseInt(st.nextToken());
+
+            // 미방문인 경우 false
+            // 방문인 경우 true
+            visited = new boolean[MAX];
+            // 경로를 찾기 위해 부모노드의 값을 저장한다.
+            parent = new int[MAX];
+            // 어떤 연산을 사용했는지를 저장한다.
+            register = new char[MAX];
+
+            // BFS를 위한 큐 선언
+            Queue<Integer> queue = new LinkedList<>();
+            // 시작 노드를 큐에 추가
+            queue.add(A);
+            // 시작 노드를 방문 처리한다.
+            visited[A] = true;
+
+            while(true){
+                int cur = queue.poll();
+
+                int msb = cur / 1000;
+                int lsb = cur % 10;
+
+                int D = (cur * 2) % MAX;
+                int S = cur == 0 ? MAX - 1: cur - 1;
+                int L = (cur * 10 + msb) % MAX;
+                int R = cur / 10 + lsb * 1000;
+
+                // D function
+                // D 명령을 한 값이 미방문인 경우
+                if(!visited[D]){
+                    visited[D] = true;
+                    parent[D] = cur;
+                    register[D] = 'D';
+                    queue.add(D);
+                }
+
+                // S function
+                // S 명령을 한 값이 미방문인 경우
+                if(!visited[S]){
+                    visited[S] = true;
+                    parent[S] = cur;
+                    register[S] = 'S';
+                    queue.add(S);
+                }
+
+                // L function
+                // L 명령을 한 값이 미방문인 경우
+                if(!visited[L]){
+                    visited[L] = true;
+                    parent[L] = cur;
+                    register[L] = 'L';
+                    queue.add(L);
+                }
+
+                // R function
+                // R 명령을 한 값이 미방문인 경우
+                if(!visited[R]){
+                    visited[R] = true;
+                    parent[R] = cur;
+                    register[R] = 'R';
+                    queue.add(R);
+                }
+
+                // 도달하고자 하는 노드가 방문인 경우
+                // 경로를 찾는다.
+                if(visited[B]) {
+                    int curValue = B;
+
+                    while(curValue != A){
+                        int parentValue = parent[curValue];
+
+                        sb.append(register[curValue]);
+                        curValue = parentValue;
+                    }
+                    // 역순으로 연산을 sb에 append했기 때문에
+                    // reverse하여 출력한다.
+                    bw.write(sb.reverse().append("\n").toString());
                     break;
                 }
-                System.out.println(poll.number);
-                if (visit[poll.number]) {
-                    continue;
-                }
-                visit[poll.number] = true;
-                queue.offer(new Data(doDouble(poll.number), poll.answer + "D"));
-                queue.offer(new Data(doSubtraction(poll.number), poll.answer + "S"));
-                queue.offer(new Data(doLeft(poll.number), poll.answer + "L"));
-                queue.offer(new Data(doRight(poll.number), poll.answer + "R"));
             }
-            bw.write(answer + "\n");
+
         }
-        bw.flush();
         bw.close();
-    }
-
-    private static int doDouble(int number) {
-        number *= 2;
-        if (number >= 10000) {
-            number %= 10000;
-            return number;
-        }
-        return number;
-    }
-
-    private static int doRight(int number) {
-        int tmp = number % 10;
-        number /= 10;
-        number += tmp * 1000;
-        return number;
-    }
-
-    private static int doLeft(int number) {
-        int tmp = number / 1000;
-        number = number * 10 % 10000 + tmp;
-
-        return number;
-    }
-
-    private static int doSubtraction(int number) {
-        if (number == 0) {
-            number = 9999;
-        } else {
-            number--;
-        }
-        return number;
-    }
-}
-
-class Data {
-
-    int number;
-    String answer;
-
-    public Data(int number, String answer) {
-        this.number = number;
-        this.answer = answer;
+        br.close();
     }
 }
