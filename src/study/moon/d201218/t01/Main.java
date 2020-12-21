@@ -8,7 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+//https://www.acmicpc.net/problem/15686
 public class Main {
 
     static int arrLength;

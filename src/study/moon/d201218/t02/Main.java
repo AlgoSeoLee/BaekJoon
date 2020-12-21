@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-
+//https://www.acmicpc.net/problem/16232
 public class Main {
 
     static int[] moveX = {-1, 0, 0, 1};

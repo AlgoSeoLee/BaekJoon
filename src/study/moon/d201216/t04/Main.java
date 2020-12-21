@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.LinkedList;
-
+//https://www.acmicpc.net/problem/11403
 public class Main {
 
     static int n;
