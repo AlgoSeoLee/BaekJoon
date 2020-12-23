@@ -1,4 +1,6 @@
-package study.moon.d201221.t02;
+package study.moon.d201222.t01;
+
+//https://www.acmicpc.net/problem/1504
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -6,15 +8,12 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.PriorityQueue;
 
-//https://www.acmicpc.net/problem/1238
 public class Main {
 
-    static int vertex, edge, x;
+    static int vertex, edge;
     static ArrayList<ArrayList<Node>> list; // 인접리스트.
-    static ArrayList<ArrayList<Node>> list2;
 
     public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -22,16 +21,13 @@ public class Main {
         String[] split = br.readLine().split(" ");
         vertex = Integer.parseInt(split[0]);
         edge = Integer.parseInt(split[1]);
-        x = Integer.parseInt(split[2]);
         list = new ArrayList<>();
-        list2 = new ArrayList<>();
 
         for (int i = 0; i <= vertex; i++) {
             list.add(new ArrayList<>());
-            list2.add(new ArrayList<>());
         }
 
-        // 단방향 인접 리스트 구현.
+        //양방향 인접리스트 구현
         for (int i = 0; i < edge; i++) {
             String[] strings = br.readLine().split(" ");
             int start = Integer.parseInt(strings[0]);
@@ -40,22 +36,38 @@ public class Main {
 
             // start에서 end로 가는 weight (가중치)
             list.get(start).add(new Node(end, weight));
-            list2.get(end).add(new Node(start, weight));
+            list.get(end).add(new Node(start, weight));
         }
 
-        int[] dijkstra1 = dijkstra(x, list);
-        int[] dijkstra2 = dijkstra(x, list2);
+        String[] s = br.readLine().split(" ");
+        int target1 = Integer.parseInt(s[0]);
+        int target2 = Integer.parseInt(s[1]);
 
-        int answer = Integer.MIN_VALUE;
-
-        for (int i = 1; i <= vertex; i++) {
-            int sum = dijkstra1[i] + dijkstra2[i];
-            if (sum > answer) {
-                answer = sum;
-            }
+        int result1 = dijkstra(1, target1);
+        int result2 = dijkstra(target1, target2);
+        int result3 = dijkstra(target2, vertex);
+        if (result1 == Integer.MAX_VALUE
+            || result2 == Integer.MAX_VALUE
+            || result3 == Integer.MAX_VALUE
+        ) {
+            bw.write("-1");
+            bw.flush();
+            return;
         }
 
-        bw.write(answer + "");
+        int result4 = dijkstra(1, target2);
+        int result5 = dijkstra(target2, target1);
+        int result6 = dijkstra(target1, vertex);
+        if (result4 == Integer.MAX_VALUE
+            || result5 == Integer.MAX_VALUE
+            || result6 == Integer.MAX_VALUE
+        ) {
+            bw.write("-1");
+            bw.flush();
+            return;
+        }
+
+        bw.write(Math.min(result1 + result2 + result3,result4 + result5+result6) + "");
 
         bw.flush();
         bw.close();
@@ -63,7 +75,7 @@ public class Main {
     }
 
     // 다익스트라 알고리즘
-    public static int[] dijkstra(int start, List<ArrayList<Node>> list) {
+    public static int dijkstra(int start, int end) {
         PriorityQueue<Node> heap = new PriorityQueue<>();
         boolean[] check = new boolean[vertex + 1];
         int[] dist = new int[vertex + 1];
@@ -86,7 +98,7 @@ public class Main {
                 }
             }
         }
-        return dist;
+        return dist[end];
     }
 }
 
@@ -106,3 +118,4 @@ class Node implements Comparable<Node> {
     }
 
 }
+

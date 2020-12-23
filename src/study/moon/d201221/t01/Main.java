@@ -17,6 +17,7 @@ public class Main {
     static int[] visit;
 
     public static void main(String[] args) throws IOException {
+        //입력
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
@@ -25,6 +26,8 @@ public class Main {
         for (int i = 0; i < adj.length; i++) {
             adj[i] = new ArrayList<>();
         }
+
+        //인접리스트의 가중치를 연결
         for (int i = 1; i <= n; i++) {
             String[] split = br.readLine().split(" ");
             int vertex = Integer.parseInt(split[0]);
