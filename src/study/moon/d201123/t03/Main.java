@@ -13,7 +13,9 @@ public class Main {
         int r = Integer.parseInt(split[1]);
         int c = Integer.parseInt(split[2]);
         getNumber(0,0,n,r,c);
-        System.out.println(answer);
+        bw.write(answer+"");
+        bw.flush();
+        bw.close();
     }
 
     private static void getNumber(int startX, int startY, int size, int r, int c) {
