@@ -1,105 +1,93 @@
 package study.moon.y2020.m12.d201226.t01;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class Main {
 
-    static int min = Integer.MAX_VALUE;
-    static int n;
-    static int m;
-    static int[][] arr;
-    static int[] moveX = {-1, 1, 0, 0};
-    static int[] moveY = {0, 0, -1, 1};
+    static int N;
+    static int M;
+    static int[][] map;
+    static int[] dx = {0, 0, -1, 1};
+    static int[] dy = {-1, 1, 0, 0};
+    static boolean[][][] visited;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws Exception {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String[] split = br.readLine().split(" ");
-        n = Integer.parseInt(split[0]);
-        m = Integer.parseInt(split[1]);
+        String[] input = br.readLine().split(" ");
 
-        arr = new int[n + 1][m + 1];
-        for (int i = 1; i <= n; i++) {
-            String s = br.readLine();
-            for (int j = 1; j <= m; j++) {
-                int numericValue = Character.getNumericValue(s.charAt(j - 1));
-                if (numericValue == 1) {
-                    arr[i][j] = -1;
-                }
+        N = Integer.parseInt(input[0]);
+        M = Integer.parseInt(input[1]);
+
+        map = new int[N + 1][M + 1];
+        visited = new boolean[N + 1][M + 1][2];
+
+        for (int i = 1; i <= N; i++) {
+            input = br.readLine().split("");
+            for (int j = 1; j <= M; j++) {
+                map[i][j] = Integer.parseInt(input[j - 1]);
             }
         }
 
         bfs();
-
-        if (min == Integer.MAX_VALUE) {
-            bw.write("-1");
-        } else {
-            bw.write(min + "");
-        }
-        bw.flush();
-        bw.close();
-
     }
 
     private static void bfs() {
-        LinkedList<Place> queue = new LinkedList<>();
+        Queue<Point> q = new LinkedList<>();
+        q.add(new Point(1, 1, 0, 1));
 
-        int result = Integer.MAX_VALUE;
-        queue.add(new Place(1, 1, 1, 0));
-        while (!queue.isEmpty()) {
-            Place poll = queue.poll();
-            if (poll.m < 1 || poll.m > m || poll.n < 1 || poll.n > n) {
-                continue;
+        visited[1][1][0] = true;
+        visited[1][1][1] = true;
+
+        while (!q.isEmpty()) {
+            Point p = q.poll();
+
+            if (p.x == N && p.y == M) {
+                System.out.println(p.count);
+                return;
             }
-            if (arr[poll.n][poll.m] == -1) {
-                if (poll.block >= 1) {
+
+            for (int i = 0; i < 4; i++) {
+                int nx = p.x + dx[i];
+                int ny = p.y + dy[i];
+                int breakWall = p.breakWall;
+                int count = p.count;
+
+                if (nx <= 0 || ny <= 0 || nx > N || ny > M) {
                     continue;
-                } else {
-                    poll.block++;
                 }
-            }
-            if (arr[poll.n][poll.m] >= 0) {
-                if (poll.block>=1) {
-                    continue;
-                } else {
-                    if (arr[poll.n][poll.m] <= poll.length) {
-                        continue;
+
+                if (map[nx][ny] == 1) { //벽
+                    if (breakWall == 0 && !visited[nx][ny][1]) { //벽을 부신 적 없음
+                        visited[nx][ny][1] = true;
+                        q.add(new Point(nx, ny, 1, count + 1));
+                    }
+                } else { //빈 칸
+                    if (!visited[nx][ny][breakWall]) {
+                        q.add(new Point(nx, ny, breakWall, count + 1));
+                        visited[nx][ny][breakWall] = true;
                     }
                 }
             }
-            if (poll.n == n && poll.m == m) {
-                result = poll.length;
-                break;
-            }
-            arr[poll.n][poll.m] = poll.length;
+        }
 
-            for (int i = 0; i < 4; i++) {
-                queue.add(
-                    new Place(poll.n + moveX[i], poll.m + moveY[i], poll.length + 1, poll.block));
-            }
-        }
-        if (result < min) {
-            min = result;
-        }
+        System.out.println(-1);
     }
 }
 
-class Place {
+class Point {
 
-    int n;
-    int m;
-    int length;
-    int block;
+    int x;
+    int y;
+    int breakWall;
+    int count;
 
-    public Place(int n, int m, int length, int block) {
-        this.n = n;
-        this.m = m;
-        this.length = length;
-        this.block = block;
+    public Point(int x, int y, int breakWall, int count) {
+        this.x = x;
+        this.y = y;
+        this.breakWall = breakWall;
+        this.count = count;
     }
 }
