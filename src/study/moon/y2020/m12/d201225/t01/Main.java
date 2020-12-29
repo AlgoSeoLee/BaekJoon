@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
-
+//https://www.acmicpc.net/problem/1991
 public class Main {//이진트리
 
     public static void main(String[] args) throws IOException {
@@ -39,8 +39,6 @@ public class Main {//이진트리
         }
         bw.flush();
         bw.close();
-
-
     }
 
 }
