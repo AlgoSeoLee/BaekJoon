@@ -1,4 +1,4 @@
-package study.moon.y2020.m12.d201229.t02;
+package study.moon.y2020.m12.d201230.t02;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -20,11 +20,9 @@ public class Main {
             dp[i + 1] = 1;
         }
 
-
-
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
-                if (arr[i] > arr[j]) {
+                if (arr[i] < arr[j]) {
                     if (dp[i] <= dp[j]) {
                         dp[i] = dp[j] + 1;
                     }
@@ -44,4 +42,6 @@ public class Main {
         bw.flush();
         bw.close();
     }
+
 }
+

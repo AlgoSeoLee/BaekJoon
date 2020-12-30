@@ -1,4 +1,4 @@
-package study.moon.y2020.m12.d201229.t02;
+package study.moon.y2020.m12.d201230.t01;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -17,16 +17,14 @@ public class Main {
         int[] dp = new int[n + 1];
         for (int i = 0; i < n; i++) {
             arr[i + 1] = Integer.parseInt(s[i]);
-            dp[i + 1] = 1;
+            dp[i + 1] = arr[i + 1];
         }
-
-
 
         for (int i = 1; i <= n; i++) {
             for (int j = 1; j <= i; j++) {
                 if (arr[i] > arr[j]) {
-                    if (dp[i] <= dp[j]) {
-                        dp[i] = dp[j] + 1;
+                    if (dp[j] + arr[i] > dp[i]) {
+                        dp[i] = arr[i] + dp[j];
                     }
                 }
             }
@@ -44,4 +42,5 @@ public class Main {
         bw.flush();
         bw.close();
     }
+
 }
