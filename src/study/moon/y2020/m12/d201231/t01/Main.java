@@ -5,6 +5,7 @@ import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.Stack;
 
 public class Main {
 
@@ -36,6 +37,9 @@ public class Main {
                 dp[i][j] = dp[i-1][j]+dp[i][j-1]-dp[i-1][j-1]+arr[i][j];
             }
         }
+
+
+
 
         for (int i = 0; i < m; i++) {
             int answer = 0;

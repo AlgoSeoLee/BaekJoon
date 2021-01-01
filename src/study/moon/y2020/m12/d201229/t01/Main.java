@@ -17,7 +17,7 @@ public class Main {
         for (int i = 0; i < s.length(); i++) {
             bombStack.add(s.charAt(i));
         }
-        if (bombStack.builder.length()==0) {
+        if (bombStack.builder.length() == 0) {
             bw.write("FRULA");
         } else {
             bw.write(bombStack.builder.toString());
@@ -29,6 +29,7 @@ public class Main {
 }
 
 class BombStack {
+
     StringBuilder builder;
     String bomb;
 
@@ -40,16 +41,17 @@ class BombStack {
 
     public void add(char c) {
         builder.append(c);
-        if (builder.length()>=bomb.length()) {
+        if (builder.length() >= bomb.length()) {
             bombChaining();
         }
     }
 
     public void bombChaining() {
-        while (builder.length()>=bomb.length()) {
-            if (builder.substring(builder.length()-bomb.length(),builder.length()).equals(bomb)) {
-                builder.delete(builder.length()-bomb.length(),builder.length());
-            }else {
+        while (builder.length() >= bomb.length()) {
+            if (builder.substring(builder.length() - bomb.length(), builder.length())
+                .equals(bomb)) {
+                builder.delete(builder.length() - bomb.length(), builder.length());
+            } else {
                 break;
             }
         }
