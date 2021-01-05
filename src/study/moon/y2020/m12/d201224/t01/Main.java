@@ -6,6 +6,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+//https://www.acmicpc.net/problem/1865
+//그래프 벨만-포드
 public class Main {
 
     static final int INF = Integer.MAX_VALUE;

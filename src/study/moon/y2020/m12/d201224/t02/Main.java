@@ -6,7 +6,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Stack;
-//후위표기식
+
+//https://www.acmicpc.net/problem/1918
+//후위표기식 스택
 public class Main {
 
     public static void main(String[] args) throws IOException {

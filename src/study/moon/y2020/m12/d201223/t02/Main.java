@@ -8,6 +8,8 @@ import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+//https://www.acmicpc.net/problem/1786
+//KMP 문자열
 public class Main {
 
     static BufferedWriter bw;
