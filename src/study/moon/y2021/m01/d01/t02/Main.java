@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.PriorityQueue;
 
+//https://www.acmicpc.net/problem/11779    [G3]    최소비용구하기2
 public class Main {
     static int vertex, edge;
     static ArrayList<ArrayList<Node>> list; // 인접리스트.

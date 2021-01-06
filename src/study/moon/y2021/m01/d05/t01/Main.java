@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.Arrays;
 
+//https://www.acmicpc.net/problem/15657    [S3]    N과M(8)
 public class Main {
 
     static BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));

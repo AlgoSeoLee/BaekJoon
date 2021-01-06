@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 
+//https://www.acmicpc.net/problem/3190    [G5]    뱀 zmija
 public class Main {
 
     //0 : 빈 공간, 1 : 사과, 2 : 뱀
