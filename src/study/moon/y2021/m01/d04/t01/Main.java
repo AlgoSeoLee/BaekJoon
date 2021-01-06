@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 
+//https://www.acmicpc.net/problem/14502    [G5]    연구소
 public class Main {
 
     static LinkedList<Place> queue = new LinkedList<>();

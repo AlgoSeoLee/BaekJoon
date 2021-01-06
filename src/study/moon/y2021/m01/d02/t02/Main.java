@@ -7,6 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.PriorityQueue;
 
+//https://www.acmicpc.net/problem/13549    [G5]    숨바꼭질3
 public class Main {
 
     static boolean[] visit;

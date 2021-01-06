@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+//https://www.acmicpc.net/problem/14499    [G5]    주사위 굴리기
 public class Main {
 
     static int N;

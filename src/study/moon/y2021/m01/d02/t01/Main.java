@@ -8,6 +8,7 @@ import java.io.OutputStreamWriter;
 import java.util.Arrays;
 import java.util.LinkedList;
 
+//https://www.acmicpc.net/problem/12851    [G5]    숨바꼭질2
 public class Main {
 
     static int[] visit;

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.PriorityQueue;
 
+//https://www.acmicpc.net/problem/14938    [G4]    서강그라운드
 public class Main {
 
     static int vertex, edge, range;
