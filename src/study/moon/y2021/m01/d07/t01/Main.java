@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-//https://www.acmicpc.net/problem/17070    [G5]    파이프 옮기기1
+//https://www.acmicpc.net/problem/17070    [G5]    파이프 옮기기1    <발표>
 public class Main {
 
     public static void main(String[] args) throws IOException {

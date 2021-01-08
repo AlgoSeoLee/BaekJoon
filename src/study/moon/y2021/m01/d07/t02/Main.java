@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.LinkedList;
 
-//https://www.acmicpc.net/problem/17144    [G5]    미세먼지 안녕!
+//https://www.acmicpc.net/problem/17144    [G5]    미세먼지 안녕!    <발표>
 public class Main {
 
     static int R;
