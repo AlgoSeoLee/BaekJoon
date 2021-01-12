@@ -3,6 +3,7 @@ package study.eunwoo.SWEA;
 import java.io.IOException;
 import java.util.Scanner;
 
+// [1945 간단한 소인수분해] https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AV5Pl0Q6ANQDFAUq&categoryId=AV5Pl0Q6ANQDFAUq&categoryType=CODE
 public class S1945 {
     public static void main(String[] args) throws IOException {
         Scanner sc = new Scanner(System.in);
