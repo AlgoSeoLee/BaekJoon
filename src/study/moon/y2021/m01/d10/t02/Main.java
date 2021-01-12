@@ -18,9 +18,9 @@ public class Main {
 
     static ArrayList<Integer> sortedList = new ArrayList<>(); //정렬 결과용 큐
 
-    static int[] weight;
+    static int[] weight;//가중치
 
-    static int[] time;
+    static int[] time;//각자 시간
 
     static int[] targetedNodeCount;
 
