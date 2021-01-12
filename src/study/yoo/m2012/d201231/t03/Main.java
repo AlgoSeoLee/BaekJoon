@@ -22,10 +22,12 @@ public class Main{
                System.out.println(temp1);
                System.out.println(temp2 + "몰랑");
                //중복된거 빼고 카운트
-               if(temp1.contains(temp2))
-                   continue;
-               else
-                   count++;    
+               if(temp1.contains(temp2)) {
+            	   continue;
+               }
+               else {
+            	   count++;    
+               }
            }
        }
        System.out.println(count);

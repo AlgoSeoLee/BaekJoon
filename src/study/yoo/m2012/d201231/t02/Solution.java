@@ -12,11 +12,13 @@ class Solution {
     	
     	for(int i = 0; i < clothes.length; i++) {
             // 수량 세기
-    		if(map.get(clothes[i][1]) == null)
+    		if(map.get(clothes[i][1]) == null) {
     			map.put(clothes[i][1], 1);
-    		else
+    		}
+    		else {
     			//종류 같은 거 있으면 더해주기
     			map.put(clothes[i][1], map.get(clothes[i][1]) + 1);
+    		}
     	}
     	
     	for(String keys: map.keySet()) {
