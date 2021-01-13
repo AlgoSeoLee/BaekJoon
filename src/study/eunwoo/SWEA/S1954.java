@@ -14,23 +14,23 @@ public class S1954 {
             int [][] map = new int[N][N];
             int x = 0;
             int y = -1;
-            int flag = 1;
-            int count = 1;
+            int turn = 1; // 증가, 감소 부분을 구분시킴
+            int count = 1; // map에 들어갈 숫자 값
 
             while (true) {
                 for (int i=0; i<N; i++) {
-                    y += flag;
+                    y += turn;
                     map[x][y] = count;
                     count++;
                 }
                 N--;
 
                 for (int i=0; i<N; i++) {
-                    x += flag;
+                    x += turn;
                     map[x][y] = count;
                     count++;
                 }
-                flag *= -1;
+                turn *= -1;
 
                 if (N == 0) {
                     break;
