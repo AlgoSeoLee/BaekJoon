@@ -21,10 +21,10 @@ public class S1959 {
 
             int max = 0;
             if (N < M) {
-                for (int i=0; i<=M-N; i++) {
+                for (int i=0; i<=M-N; i++) { // i=0, 1, 2
                     int sum = 0;
 
-                    for (int j=0; j<N; j++) {
+                    for (int j=0; j<N; j++) { // j=0, 1, 2
                         sum += arrA[j] * arrB[i+j];
                     }
 
