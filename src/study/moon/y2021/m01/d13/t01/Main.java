@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-//https://www.acmicpc.net/problem/2467
+//https://www.acmicpc.net/problem/2467    [G5]    용액
 public class Main {
 
     public static void main(String[] args) throws IOException {
