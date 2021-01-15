@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-//https://www.acmicpc.net/problem/1647    [G4]    도시 분할 계획
+//https://www.acmicpc.net/problem/1647    [G4]    도시 분할 계획!
 public class Main {
 
     static int vertex, edge;
