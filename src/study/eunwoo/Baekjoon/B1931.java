@@ -20,16 +20,16 @@ public class B1931 {
         Arrays.sort(times, new Comparator<int[]>() {
             @Override
             public int compare(int[] o1, int[] o2) {
-                if (o1[1] == o2[1]) {
+                if (o1[1] == o2[1]) { // 끝나는 시간이 같다면, 시작 시간 오름차순
                     return o1[0] - o2[0];
-                } else {
+                } else { // 같지 않다면, 끝나는 시간 오름차순
                     return o1[1] - o2[1];
                 }
             }
         });
 
-        int count = 0;
-        int end = -1;
+        int count = 0; // 가능한 회의 수
+        int end = -1; // 끝나는 시간을 저장
 
         for (int i=0; i<N; i++) {
             if (times[i][0] >= end) {
