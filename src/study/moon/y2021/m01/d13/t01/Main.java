@@ -27,12 +27,14 @@ public class Main {
 
         //when
         while (p1 != p2) {
+            //갱신
             int abs = Math.abs(arr[p1] + arr[p2]);
             if (abs < min) {
                 answer1 = arr[p1];
                 answer2 = arr[p2];
                 min = abs;
             }
+            //포인터 이동
             if (Math.abs(arr[p1 + 1] + arr[p2]) <= Math.abs(arr[p1] + arr[p2 - 1])) {
                 p1++;
             } else {
