@@ -16,19 +16,17 @@ public class S1288 {
             int count = 1; // N에 곱해줄 카운트
 
             while (true) {
-                int mul = N * count; // 배수
+                int mul = N * count; // N의 배수
                 String str = Integer.toString(mul);
                 
                 for (int i=0; i<str.length(); i++) {
-                    char c = str.charAt(i);
+                    char c = str.charAt(i); // 한 문자씩 검사한다
                     int tmp = Character.getNumericValue(c);
 
                     if (!visit[tmp]) {
                         visit[tmp] = true;
                         check++;
-                    } else {
-                        continue;
-                    }
+                    } 
                 }
                 
                 if (check == 10) {
