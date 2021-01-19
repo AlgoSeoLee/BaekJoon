@@ -30,7 +30,6 @@ public class Main {
             graph[i] = new ArrayList<>();
         }
 
-
         //양방향(Prim)
         for (int i = 1; i <= edge; i++) {
             s = br.readLine().split(" ");
