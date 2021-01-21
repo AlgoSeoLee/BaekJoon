@@ -3,7 +3,7 @@ package study.moon.y2021.m01.d19;
 import java.util.*;
 import java.io.*;
 
-//https://www.acmicpc.net/problem/2473
+//https://www.acmicpc.net/problem/2473    [G4]   세 용액
 class Main {
 
     static long[] answer = new long[3];
