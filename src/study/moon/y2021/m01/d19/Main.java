@@ -20,13 +20,10 @@ class Main {
         for (int i = 0; i < n; i++) {
             arr[i] = Long.parseLong(s[i]);
         }
-
         Arrays.sort(arr);
-
         for (int i = 0; i < n - 2; i++) {
             solution(arr, i);
         }
-
         Arrays.sort(answer);
 
         for (int i = 0; i < 3; i++) {

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-//https://www.acmicpc.net/problem/4386
+//https://www.acmicpc.net/problem/4386    [G4]    별자리 만들기
 public class Main {
 
     static int vertex;
