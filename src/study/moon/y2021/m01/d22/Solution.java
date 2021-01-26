@@ -38,6 +38,7 @@ public class Solution {
     static void combination(String[] arr, int[] visited, int start, int n, int r) {
         if (r == 0) {
             if (isFinished(visited)) {
+                System.out.println(count);
                 count++;
             }
             return;
