@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-//[8673. 코딩 토너먼트1] https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW2Jldrqlo4DFASu&categoryId=AW2Jldrqlo4DFASu&categoryType=CODE
+// [8673. 코딩 토너먼트1] https://swexpertacademy.com/main/code/problem/problemDetail.do?contestProbId=AW2Jldrqlo4DFASu&categoryId=AW2Jldrqlo4DFASu&categoryType=CODE
 public class S8673 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
