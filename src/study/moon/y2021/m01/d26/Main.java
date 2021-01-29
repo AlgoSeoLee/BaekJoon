@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
-//https://www.acmicpc.net/problem/2166    [G5]    다각현의 면적
+//https://www.acmicpc.net/problem/2166    [G5]    다각형의 면적
 public class Main {
 
     public static void main(String[] args) throws IOException {
@@ -26,6 +26,7 @@ public class Main {
 
         double sum1 = 0;
         double sum2 = 0;
+        //ㅅㅂㄲ 공식
         for (int i = 0; i < N; i++) {
             sum1 += X[i] * Y[i + 1];
             sum2 += X[i + 1] * Y[i];

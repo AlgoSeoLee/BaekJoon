@@ -1,4 +1,4 @@
-package study.moon.y2021.m01.d13.t01;
+package study.moon.y2021.m01.d13;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
