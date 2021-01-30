@@ -1,15 +1,26 @@
 package study.moon.test;
 
-import java.util.List;
-
 public enum Word {
+    OH,
     HELLO("HELLO"),
-    WORLD("WORLD");
+    WORLD("WORLD"),
 
-    Word(String words) {
+    MY_NAME("MY_NAME",1),
+    IS_MOON("IS_MOON",2);
+
+    String word;
+    int number;
+
+    Word() {
     }
 
-    public static List<Word> getAll(){
-        return List.of(HELLO,WORLD);
+    Word(String word) {
+        this.word = word;
     }
+
+    Word(String word, int number) {
+        this.word = word;
+        this.number = number;
+    }
+
 }
