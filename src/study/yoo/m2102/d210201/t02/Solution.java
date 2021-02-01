@@ -1,9 +1,10 @@
 package study.yoo.m2102.d210201.t02;
 
+//4단 고음
 class Solution {
     public int solution(int n) {
             int answer = 0;
-            return check(n-2,2);
+            return check(n-2, 2);
         }
 
         public int check(int n, int p) { 
@@ -16,7 +17,7 @@ class Solution {
                   return 0;
               }
 
-            return check(n - 1, p + 1)+(n % 3 == 0 && p > 1 ? check(n / 3, p - 2) : 0);
+            return check(n - 1, p + 1) + (n % 3 == 0 && p > 1 ? check(n / 3, p - 2) : 0);
         }
     
 }
