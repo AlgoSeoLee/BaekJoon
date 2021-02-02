@@ -27,18 +27,18 @@ class Main {
         bw.close();
     }
 
-    static int dfs(int x, int left, int right) {
-        if (x == arr.length) {
+    static int dfs(int depth, int left, int right) {
+        if (depth == arr.length) {
             return 0;
         }
-        if (dp[x][left][right] != 0) {
-            return dp[x][left][right];
+        if (dp[depth][left][right] != 0) {
+            return dp[depth][left][right];
         }
 
-        int goLeft = dfs(x + 1, arr[x], right) + going(left, arr[x]);
-        int goRight = dfs(x + 1, left, arr[x]) + going(right, arr[x]);
+        int goLeft = dfs(depth + 1, arr[depth], right) + going(left, arr[depth]);
+        int goRight = dfs(depth + 1, left, arr[depth]) + going(right, arr[depth]);
 
-        return dp[x][left][right] = Math.min(goLeft, goRight);
+        return dp[depth][left][right] = Math.min(goLeft, goRight);
     }
 
     static int going(int go, int to) {
