@@ -24,7 +24,6 @@ public class S7964 {
             for (int i = 0, dis = 0; i < n; i++, dis++) {
                 if (i == 0 && arr[i] == 0) {
                     count++;
-                    System.out.println(arr[i]);
                 }
                 else if (arr[i] == 1)
                     dis = 0;
