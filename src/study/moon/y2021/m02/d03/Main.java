@@ -9,26 +9,24 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-//https://www.acmicpc.net/problem/11437    [G4]    LCA
+//https://www.acmicpc.net/problem/11437    [G3]    LCA
 public class Main {
 
     static ArrayList<Integer>[] adj;
     static boolean[] visit;
 
-    static LinkedList<Integer> queue = new LinkedList<>();
-
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int vertex =  Integer.parseInt(br.readLine());
-        int edge = vertex-1;
-        adj = new ArrayList[vertex+1];
+        int vertex = Integer.parseInt(br.readLine());
+        int edge = vertex - 1;
+        adj = new ArrayList[vertex + 1];
 
-        for (int i = 0; i < vertex+1; i++) {
+        for (int i = 0; i < vertex + 1; i++) {
             adj[i] = new ArrayList<>();
         }
-        visit = new boolean[vertex+1];
+        visit = new boolean[vertex + 1];
         visit[1] = true;
 
         for (int i = 0; i < edge; i++) {
@@ -38,7 +36,7 @@ public class Main {
             if (visit[start]) {
                 adj[end].add(start);
                 visit[end] = true;
-            }else {
+            } else {
                 adj[start].add(end);
                 visit[start] = true;
             }
@@ -47,7 +45,7 @@ public class Main {
         int M = Integer.parseInt(br.readLine());
         for (int i = 0; i < M; i++) {
             String[] s = br.readLine().split(" ");
-            bw.write(solution(Integer.parseInt(s[0]),Integer.parseInt(s[1]))+"\n");
+            bw.write(solution(Integer.parseInt(s[0]), Integer.parseInt(s[1])) + "\n");
         }
 
         bw.flush();
@@ -63,9 +61,9 @@ public class Main {
         return path1.get(0);
     }
 
-    private static List<Integer> getPath(List<Integer> path,int vertex) {
+    private static List<Integer> getPath(List<Integer> path, int vertex) {
         path.add(vertex);
-        while(!adj[vertex].isEmpty()) {
+        while (!adj[vertex].isEmpty()) {
             path.add(adj[vertex].get(0));
             vertex = adj[vertex].get(0);
         }
