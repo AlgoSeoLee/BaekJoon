@@ -15,6 +15,8 @@ public class Main {
     static ArrayList<Integer>[] adj;
     static boolean[] visit;
 
+    static LinkedList<Integer> queue = new LinkedList<>();
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
@@ -33,13 +35,21 @@ public class Main {
             String[] s = br.readLine().split(" ");
             int start = Integer.parseInt(s[0]);
             int end = Integer.parseInt(s[1]);
-            if (visit[start]) {
-                adj[end].add(start);
-                visit[end] = true;
-            } else {
-                adj[start].add(end);
-                visit[start] = true;
-            }
+            adj[end].add(start);
+            adj[start].add(end);
+        }
+        queue.add(1);
+        while (!queue.isEmpty()) {
+            Integer poll = queue.poll();
+            List<Integer> remove = new ArrayList<>();
+            visit[poll] = true;
+            adj[poll].forEach(v->{
+                if (!visit[v]) {
+                    queue.add(v);
+                    remove.add(v);
+                }
+            });
+            remove.forEach(v->adj[poll].remove(v));
         }
 
         int M = Integer.parseInt(br.readLine());

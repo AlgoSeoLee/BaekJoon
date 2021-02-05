@@ -53,22 +53,22 @@ public class Main {
     private static void bfs() throws IOException {
         while (!queue.isEmpty()) {
             Data poll = queue.poll();
-//            Data moveUp = moveUp(poll);
-//            if (moveUp != null) {
-//                queue.add(moveUp);
-//            }
-//            Data moveDown = moveDown(poll);
-//            if (moveDown != null) {
-//                queue.add(moveDown);
-//            }
+            Data moveUp = moveUp(poll);
+            if (moveUp != null) {
+                queue.add(moveUp);
+            }
+            Data moveDown = moveDown(poll);
+            if (moveDown != null) {
+                queue.add(moveDown);
+            }
             Data moveLeft = moveLeft(poll);
             if (moveLeft != null) {
                 queue.add(moveLeft);
             }
-//            Data moveRight = moveRight(poll);
-//            if (moveRight != null) {
-//                queue.add(moveRight);
-//            }
+            Data moveRight = moveRight(poll);
+            if (moveRight != null) {
+                queue.add(moveRight);
+            }
         }
         bw.write("-1");
         bw.flush();
@@ -78,6 +78,7 @@ public class Main {
         if (data.count > 10) {
             return null;
         }
+        boolean isEnd = false;
         int bn = data.blueN;
         int bm = data.blueM;
         int rn = data.redN;
@@ -89,32 +90,34 @@ public class Main {
                 }
                 bn--;
             }
-            while (((arr[rn - 1][rm] == '.' || arr[rn - 1][rm] == 'O') && (rn - 1 != bn && rm!=bm))) {
+            while (((arr[rn - 1][rm] == '.' || arr[rn - 1][rm] == 'O') && !(rn - 1 == bn && rm==bm))) {
                 if (arr[rn - 1][rm] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rn = 0;
+                    break;
                 }
                 rn--;
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
         } else {
             while ((arr[rn - 1][rm] == '.' || arr[rn - 1][rm] == 'O')) {
                 if (arr[rn - 1][rm] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rn = 0;
+                    break;
                 }
                 rn--;
             }
-            while (((arr[bn - 1][bm] == '.' || arr[bn - 1][bm] == 'O') && (bn - 1 != rn && bm!=rm))) {
+            while (((arr[bn - 1][bm] == '.' || arr[bn - 1][bm] == 'O') && !(bn - 1 == rn && bm==rm))) {
                 if (arr[bn - 1][bm] == 'O') {
                     return null;
                 }
                 bn--;
-                System.out.println(bn);
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
+        }
+        if (isEnd) {
+            bw.write(data.count+"");
+            bw.flush();
+            System.exit(0);
         }
         return new Data(bn, bm, rn, rm, data.count + 1);
     }
@@ -123,6 +126,7 @@ public class Main {
         if (data.count > 10) {
             return null;
         }
+        boolean isEnd = false;
         int bn = data.blueN;
         int bm = data.blueM;
         int rn = data.redN;
@@ -134,31 +138,34 @@ public class Main {
                 }
                 bn++;
             }
-            while ((arr[rn + 1][rm] == '.' || arr[rn + 1][rm] == 'O') && (rn + 1 != bn && rm != bm)) {
+            while ((arr[rn + 1][rm] == '.' || arr[rn + 1][rm] == 'O') && !(rn + 1 == bn && rm == bm)) {
                 if (arr[rn + 1][rm] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rn = 0;
+                    break;
                 }
                 rn++;
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
         } else {
             while ((arr[rn + 1][rm] == '.' || arr[rn + 1][rm] == 'O')) {
                 if (arr[rn + 1][rm] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rn = 0;
+                    break;
                 }
                 rn++;
             }
-            while ((arr[bn + 1][bm] == '.' || arr[bn + 1][bm] == 'O') && (bn + 1 != rn && bm!=rm)) {
+            while ((arr[bn + 1][bm] == '.' || arr[bn + 1][bm] == 'O') && !(bn + 1 == rn && bm==rm)) {
                 if (arr[bn + 1][bm] == 'O') {
                     return null;
                 }
                 bn++;
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
+        }
+        if (isEnd) {
+            bw.write(data.count+"");
+            bw.flush();
+            System.exit(0);
         }
         return new Data(bn, bm, rn, rm, data.count + 1);
     }
@@ -167,6 +174,7 @@ public class Main {
         if (data.count > 10) {
             return null;
         }
+        boolean isEnd = false;
         int bn = data.blueN;
         int bm = data.blueM;
         int rn = data.redN;
@@ -178,31 +186,34 @@ public class Main {
                 }
                 bm++;
             }
-            while ((arr[rn][rm + 1] == '.' || arr[rn][rm + 1] == 'O') && (rm + 1 != bm && rn!=bn)) {
+            while ((arr[rn][rm + 1] == '.' || arr[rn][rm + 1] == 'O') && !(rm + 1 == bm && rn==bn)) {
                 if (arr[rn][rm + 1] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rm = 0;
+                    break;
                 }
                 rm++;
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
         } else {
             while ((arr[rn][rm + 1] == '.' || arr[rn][rm + 1] == 'O')) {
                 if (arr[rn][rm + 1] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rm = 0;
+                    break;
                 }
                 rm++;
             }
-            while ((arr[bn][bm + 1] == '.' || arr[bn][bm + 1] == 'O') && (bm + 1 != rm && bn!=rm)) {
+            while ((arr[bn][bm + 1] == '.' || arr[bn][bm + 1] == 'O') && !(bm + 1 == rm && bn==rn)) {
                 if (arr[bn][bm + 1] == 'O') {
                     return null;
                 }
                 bm++;
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
+        }
+        if (isEnd) {
+            bw.write(data.count+"");
+            bw.flush();
+            System.exit(0);
         }
         return new Data(bn, bm, rn, rm, data.count + 1);
     }
@@ -211,44 +222,46 @@ public class Main {
         if (data.count > 10) {
             return null;
         }
+        boolean isEnd = false;
         int bn = data.blueN;
         int bm = data.blueM;
         int rn = data.redN;
         int rm = data.redM;
         if (isBlueFirst(data, 3)) {
-            while ((arr[bn][bm - 1] != '.' || arr[bn][bm - 1] != 'O')) {
+            while ((arr[bn][bm - 1] == '.' || arr[bn][bm - 1] == 'O')) {
                 if (arr[bn][bm - 1] == 'O') {
                     return null;
                 }
                 bm--;
             }
-            while ((arr[rn][rm - 1] == '.' || arr[rn][rm - 1] == 'O') && (rm - 1 != bm && rn!=bn)) {
+            while ((arr[rn][rm - 1] == '.' || arr[rn][rm - 1] == 'O') && !(rm - 1 == bm && rn==bn)) {
                 if (arr[rn][rm - 1] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rm = 0;
+                    break;
                 }
                 rm--;
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
         } else {
             while ((arr[rn][rm - 1] == '.' || arr[rn][rm - 1] == 'O')) {
                 if (arr[rn][rm - 1] == 'O') {
-                    bw.write(data.count + "");
-                    bw.flush();
-                    System.exit(0);
+                    isEnd = true;
+                    rm =0;
+                    break;
                 }
                 rm--;
-                System.out.println("rm"+rm);
             }
-            while ((arr[bn][bm - 1] == '.' || arr[bn][bm - 1] == 'O') && (bm - 1 != rm && bn!=rn)) {
+            while ((arr[bn][bm - 1] == '.' || arr[bn][bm - 1] == 'O') && !(bm - 1 == rm && bn==rn)) {
                 if (arr[bn][bm - 1] == 'O') {
                     return null;
                 }
                 bm--;
-                System.out.println("bm"+bm);
             }
-            System.out.println(bn+","+bm+","+rn+","+rm);
+        }
+        if (isEnd) {
+            bw.write(data.count+"");
+            bw.flush();
+            System.exit(0);
         }
         return new Data(bn, bm, rn, rm, data.count + 1);
     }
