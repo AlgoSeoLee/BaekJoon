@@ -16,7 +16,7 @@ public class S7584 {
 
             int answer = 0;
 
-            while (k > 0) {
+            while (k > 0) { // 짝수가 나올 때까지 반복문을 돌린다
                 if (k % 2 == 1) k = (k - 1) / 2;
                 if (k % 4 == 0) {
                     break;
