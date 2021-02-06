@@ -1,5 +1,6 @@
 package study.yoo.m2102.d210208.t01;
 
+//선행스킬 2
 class Solution {
     public int solution(String skill, String[] skill_trees) {
         int answer = 0;
