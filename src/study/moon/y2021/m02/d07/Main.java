@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+//https://www.acmicpc.net/problem/14891    [S1]    톱니바퀴
 public class Main {
 
     public static void main(String[] args) throws IOException {
@@ -56,7 +57,6 @@ class Solution {
 
         return answer;
     }
-
     private void order(int[][] gears, int target, int direction) {
         boolean[] visit = new boolean[4];
         int[] rotate = new int[4];
