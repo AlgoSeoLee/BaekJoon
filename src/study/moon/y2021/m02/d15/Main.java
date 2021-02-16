@@ -7,6 +7,7 @@ import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
 
+//https://programmers.co.kr/learn/courses/30/lessons/17676    [레벨3]    추석트래픽
 public class Main {
 
     public static void main(String[] args) throws IOException {
