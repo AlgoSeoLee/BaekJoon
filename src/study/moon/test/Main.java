@@ -1,24 +1,20 @@
 package study.moon.test;
 
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
-import java.util.EnumSet;
-import java.lang.Enum;
+import java.util.List;
 
 public class Main {
 
-    public static void main(String[] args) {
-        Word[] words = new Word[4];
-        words[0] = Word.MY_NAME;
-        words[1] = Word.HELLO;
-        words[2] = Word.IS_MOON;
-        words[3] = Word.WORLD;
-        Arrays.sort(words);
-        System.out.println(Arrays.toString(words));
-        EnumSet<Word> enumSet1 = EnumSet.allOf(Word.class);
-        EnumSet<Word> enumSet2 = EnumSet.of(words[0],words[1]);
-        Word.values();
+    public static void main(String[] args) throws IOException {
+        try (var stream = new BufferedInputStream(new FileInputStream("test.txt"))){
 
-        System.out.println(enumSet1);
-        System.out.println(enumSet2);
+        }catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }
+
