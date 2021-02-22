@@ -20,8 +20,8 @@ public class Main {
 
 		int count = 0;
 
-		for (int i = N - 1; i >= 0; i--) {
-
+		for (int i = N - 1; i >= 0; i--) { 
+			//현재 동전 보다 작을때 구성가능
 			if (coin[i] <= K) {
 				count += (K / coin[i]);
 				K = K % coin[i];

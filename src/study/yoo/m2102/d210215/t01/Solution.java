@@ -5,7 +5,7 @@ public class Solution {
 
 	public static void main(String[] args) {
 		int w = 8;
-		int h = 7;
+		int h = 12;
 		long a = solution(w, h);
 		System.out.println(a);
 	}
