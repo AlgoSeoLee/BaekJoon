@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 
+//https://www.acmicpc.net/problem/1300    [G3]    K번째 수
 public class Main {
 
     static long N;
@@ -18,20 +19,17 @@ public class Main {
         N = Integer.parseInt(br.readLine());
         K = Integer.parseInt(br.readLine());
         long start = 1L;
-        long end = 10_000_000_000L;
+        long end = K;
         long answer = 0L;
         while(start<=end) {
             long mid = start+end>>>1;
             long index = getLastIndexOf(mid);
-            if (index>K) {
+            if (index>=K) {
                 end = mid - 1;
-            } else if(index<K) {
-                start = mid + 1;
-            } else {
                 answer = mid;
-                break;
+            } else {
+                start = mid + 1;
             }
-            answer = mid;
         }
         bw.write(answer+"");
         bw.flush();
