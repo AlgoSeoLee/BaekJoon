@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.StringTokenizer;
 
 // [1946 신입사원] https://www.acmicpc.net/problem/1946
@@ -27,14 +26,11 @@ public class B1946 {
                 }
             }
 
-            Arrays.sort(rank, new Comparator<>() {
-                @Override
-                public int compare(int[] o1, int[] o2) {
-                    if (o1[0] == o2[0]) {
-                        return o1[1] - o2[1];
-                    } else {
-                        return o1[0] - o2[0];
-                    }
+            Arrays.sort(rank, (o1, o2) -> {
+                if (o1[0] == o2[0]) {
+                    return o1[1] - o2[1];
+                } else {
+                    return o1[0] - o2[0];
                 }
             });
 
