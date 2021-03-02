@@ -44,11 +44,13 @@ public class Main {
 
     private static void dfs(int n, int m) {
         if (visit[n][m] != 0) {
+            //순환을 만나면
             if (visit[n][m] == count) {
                 queue.clear();
                 count++;
                 return;
             }
+            //비순환이면
             if (visit[n][m] != count) {
                 while (!queue.isEmpty()) {
                     Place poll = queue.poll();
