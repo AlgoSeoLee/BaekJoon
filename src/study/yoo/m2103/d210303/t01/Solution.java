@@ -10,12 +10,12 @@ class Solution {
         Arrays.sort(A);
         Arrays.sort(B);
         
-        int b_i = 0; 
+        int bIndex = 0; 
 
         for(int a : A){
-            for(int i = b_i; i < B.length; i++){
+            for(int i = bIndex; i < B.length; i++){
                 if(a < B[i]){
-                    b_i = i + 1;
+                	bIndex = i + 1; //b인덱스 저장해서 뒤에만 비교
                     answer++;
                     break;
                 }
