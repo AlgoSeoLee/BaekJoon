@@ -65,11 +65,14 @@ public class Main {
 
         bw.flush();
         bw.close();
-
+        br.close();
     }
 
     private static void dfs(String skill, List<String> answer) {
         if (adj.get(skill).size() == 0) {
+            if (answer.size() == 1) {
+                return;
+            }
             for (String s : answer) {
                 System.out.print(s + " ");
             }
@@ -79,8 +82,8 @@ public class Main {
         for (int i = 0; i < adj.get(skill).size(); i++) {
             String nowSkill = adj.get(skill).get(i);
             answer.add(nowSkill);
-            dfs(nowSkill,answer);
-            answer.remove(answer.size()-1);
+            dfs(nowSkill, answer);
+            answer.remove(answer.size() - 1);
         }
     }
 }
