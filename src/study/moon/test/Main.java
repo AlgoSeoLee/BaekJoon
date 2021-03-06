@@ -2,6 +2,7 @@ package study.moon.test;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -20,13 +21,7 @@ public class Main {
             new Apple(Color.RED, 230)
         ));
 
-        int weight = 150;
-        int finalWeight = weight;
-        List<Apple> HeavyApples = filterApples(
-            apples,
-            apple -> apple.getWeight() > finalWeight
-        );
-        weight = 40;
+        Integer[] integers = apples.stream().map(Apple::getWeight).toArray(Integer[]::new);
 
     }
 

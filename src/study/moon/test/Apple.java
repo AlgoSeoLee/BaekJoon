@@ -1,8 +1,9 @@
 package study.moon.test;
 
-public class Apple {
+public class Apple{
     private Color color;
     private int weight;
+    private static final String name = "사과";
 
     public Apple(Color color, int weight) {
         this.color = color;
@@ -24,4 +25,10 @@ public class Apple {
     public void setWeight(int weight) {
         this.weight = weight;
     }
+
+    public static String getName() {
+        return Apple.name;
+    }
+
+
 }
