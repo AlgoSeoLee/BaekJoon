@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
 
+// 백준 행렬제곱 10830
+//https://www.acmicpc.net/problem/10830
 public class Main {
     static int N;
 
