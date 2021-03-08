@@ -11,13 +11,14 @@ public class Main {
 
     static int N;
     static int visit = 1 << 10;
-    static int mod = 1000000000;
-    static long[][][] dp = new long[101][10][visit];
+    static int mod = 1_000_000_000;
+    static long[][][] dp;
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         N = Integer.parseInt(br.readLine());
+        dp = new long[N+1][10][visit];
         bw.write(calc() + "");
         bw.flush();
         bw.close();
