@@ -46,8 +46,9 @@ public class Main {
     private static int bfs(int m, int n) {
         while(!queue.isEmpty()) {
             Place poll = queue.poll();
-            if (poll.m < 0 || poll.m < )
+
         }
+        return 0;
     }
 }
 
