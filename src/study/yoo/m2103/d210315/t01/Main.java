@@ -3,6 +3,8 @@ package study.yoo.m2103.d210315.t01;
 import java.util.Arrays;
 import java.util.Scanner;
 
+//과자 나눠주기
+//https://www.acmicpc.net/problem/16401
 public class Main {
 
 	static int M, N, answer;
